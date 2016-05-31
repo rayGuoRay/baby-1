@@ -21,7 +21,6 @@
 				this.$http.get(api.API_URL + 'src/data/data.json', param, function(data) {
 					console.log(data);
 					console.log(router);
-					router.go('/login');
 				}).error(function(data, status) {
 					console.log(data + "---" + status);
 				})
