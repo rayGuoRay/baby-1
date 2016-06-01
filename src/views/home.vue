@@ -1,7 +1,21 @@
+<style>
+.header {
+	height: 44px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	line-height: 44px;
+	font-size: 18px;
+	background: #6b7bf1;
+}
+</style>
 <template>
 <div>
-	<div>{{title}}</div>
+	<div class="header">广场</div>
 	<div @click="getdata()">tologin</div>
+	<login></login>
 </div>
 </template>
 <script>
@@ -25,6 +39,9 @@
 					console.log(data + "---" + status);
 				})
 			}
+		},
+		components: {
+			login: require('../components/login.vue')
 		}
 	}
 </script>

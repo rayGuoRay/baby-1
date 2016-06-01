@@ -3,8 +3,12 @@ export default {
 	user: {
 		authenticated: false
 	},
-
+	token: '',
 	API_URL: 'http://localhost:80/',
+	login: this.API_URL + 'src/data/data.json',
+	signup: this.API_URL + 'signup',
+	logout: this.API_URL + 'logout',
+
 
 	login(context, creds, redirect) {
 		var login_url = this.API_URL + 'src/data/data.json';
