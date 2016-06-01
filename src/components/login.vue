@@ -18,6 +18,7 @@
 	margin-left: -150px;
 	margin-top: -150px;
 	background: #fff;
+	z-index:2;
 }
 .loginMsg input {
 	width: 90%;
@@ -37,19 +38,22 @@
 }
 </style>
 <template>
+<div>
 	<div class="loginbg"></div>
 	<div class="loginMsg">
 		<input type="text" placeholder="请输入手机号" v-model="phoneno" />
 		<input type="password" placeholder="请输入密码" v-model="pwd" />
 		<div class="loginbtn" @click="login();">登陆</div>
 	</div>
+</div>
 </template>
 <script>
+	import {router} from '../app'
 	import api from '../api'
 	module.exports = {
 		props: {
-			redirect: 
-		}
+			redirect: []
+		},
 		data: function(){
 			return {
 
