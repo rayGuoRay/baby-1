@@ -27,13 +27,13 @@ var App = Vue.extend(require('./app.vue'));
 //var newV = new Vue();//注意看上面说明
 
 Vue.use(VueTouch);
-Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(VueRouter);
 
 Vue.http.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.http.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-var routerOBJ = new VueRouter(
+var router = new VueRouter(
 	{
 	  hashbang: true,  //为true的时候 example.com/#!/foo/bar ， false的时候 example.com/#/foo/bar
 	  //abstract:true,  //地址栏不会有变化
@@ -44,6 +44,7 @@ var routerOBJ = new VueRouter(
 	}
 );
 
-export var router = require('./routers')(routerOBJ);
+exports.module = require('./routers')(router);
 
-routerOBJ.start(App,'#app');
+router.start(App,'#app');
+

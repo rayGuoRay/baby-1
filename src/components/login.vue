@@ -5,50 +5,107 @@
 	position: fixed;
 	left: 0;
 	top: 0;
-	background: #000;
-	opacity: 0.3;
+	background: #fff;
 	z-index: 1;
 }
-.loginMsg {
-	width: 300px;
-	height: 200px;
+.loginbg .close {
+	width:50px;
+	font-size: 40px;
+	padding-left: 10px;
+}
+.loginmsg {
+	width: 90%;
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	margin-left: -150px;
-	margin-top: -150px;
-	background: #fff;
+	top: 60px;
+	left: 5%;
 	z-index:2;
 }
-.loginMsg input {
-	width: 90%;
-	height: 30px;
-	line-height: 30px;
+.loginmsg .title {
+	color: #ffc028;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.loginmsg input {
+	width: 99%;
+	height: 36px;
+	line-height: 36px;
 	margin-bottom: 15px;
 }
-.loginMsg .loginbtn {
-	width: 90%;
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
+.loginmsg .loginbtn {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
 	color: #fff;
 	border-radius: 4px;
-	background: #f1f1f1;
+	background: #ca5490;
+	text-align: center;
+}
+.loginmsg .regist {
+	margin-top: 10px;
+	color: #ca5490;
+	font-size: 16px;
+}
+.loginmsg .forgetpwd {
+	margin-top: 10px;
+	color: #b8b8b8;
+	font-size: 16px;
+}
+.thirdlogin {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+}
+.thirdlogin .line {
+	width: 100%;
+	border-top: 1px solid #999999;
+
+}
+.thirdlogin .linetitle {
+	width: 40%;
+	position: absolute;
+	left: 30%;
+	text-align: center;
+	margin-top: -11px;
+	background: #fff;
+}
+.thirdlogin .thirdpart {
+	margin-top: 50px;
+}
+.thirdlogin .thirdpart .qqpart {
+	width: 50%;
+	height: 100px;
 	text-align: center;
 }
 </style>
 <template>
-<div>
-	<div class="loginbg"></div>
-	<div class="loginMsg">
+<div v-show="loginmodel">
+	<div class="loginbg">
+		<div class="close fl" @click="closeLogin()">×</div>
+	</div>
+	<div class="loginmsg">
+		<div class="title">baby相册登陆</div>
 		<input type="text" placeholder="请输入手机号" v-model="phoneno" />
 		<input type="password" placeholder="请输入密码" v-model="pwd" />
 		<div class="loginbtn" @click="login();">登陆</div>
+		<div class="regist fl">新注册账号</div>
+		<div class="forgetpwd fr">忘记密码</div>
+	</div>
+	<div class="thirdlogin">
+		<div class="line"></div>
+		<div class="linetitle">第三方账号登录</div>
+		<div class="thirdpart cf">
+			<div class="qqpart fl">qq</div>
+			<div class="qqpart fl">微博</div>
+		</div>
 	</div>
 </div>
 </template>
 <script>
-	import {router} from '../app'
+	import router from '../app'
 	import api from '../api'
 	module.exports = {
 		props: {
@@ -56,10 +113,15 @@
 		},
 		data: function(){
 			return {
-
+				loginmodel: true,
+				phoneno: '',
+				pwd: ''
 			}
 		},
 		methods: {
+			closeLogin: function(){
+				this.loginmodel = false;
+			},
 			login : function(){
 				var param = {
 					phoneno: this.phoneno,
@@ -67,15 +129,17 @@
 				}
 				console.log(param);
 				this.$http.get(api.login, param, (data) => {
+					console.log(data)
 					localStorage.setItem('token', data.token)
 					api.token = data.token;
 
 					if (redirect) {
 						router.go(redirect)
 					}
-				}).error((err) => {
-					//context.error = err
-					context.error = '用户不存在或密码不正确!'
+				}).error((err, statue) => {
+					if(statue) {
+
+					}
 				})
 			}
 		}

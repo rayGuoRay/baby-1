@@ -15,6 +15,7 @@
 <div>
 	<div class="header">广场</div>
 	<div @click="getdata()">tologin</div>
+	<foot :tabbar.sync="1"></foot>
 	<login></login>
 </div>
 </template>
@@ -41,7 +42,8 @@
 			}
 		},
 		components: {
-			login: require('../components/login.vue')
+			login: require('../components/login.vue'),
+			foot: require('../components/footer.vue')
 		}
 	}
 </script>
