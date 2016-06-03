@@ -91,15 +91,15 @@
 		<input type="text" placeholder="请输入手机号" v-model="phoneno" />
 		<input type="password" placeholder="请输入密码" v-model="pwd" />
 		<div class="loginbtn" @click="login();">登陆</div>
-		<div class="regist fl">新注册账号</div>
-		<div class="forgetpwd fr">忘记密码</div>
+		<a class="regist fl" v-link="{name: 'register'}">新注册账号</a>
+		<a class="forgetpwd fr">忘记密码</a>
 	</div>
 	<div class="thirdlogin">
 		<div class="line"></div>
 		<div class="linetitle">第三方账号登录</div>
 		<div class="thirdpart cf">
-			<div class="qqpart fl">qq</div>
-			<div class="qqpart fl">微博</div>
+			<div class="partitem fl">qq</div>
+			<div class="partitem fl">微博</div>
 		</div>
 	</div>
 </div>

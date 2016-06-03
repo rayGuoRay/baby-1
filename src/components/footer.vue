@@ -18,6 +18,9 @@
 	color: #5D656B;
     text-align: center;
 }
+.footbar .nowbar {
+	
+}
 </style>
 <template>
 	<footer class="footbar cf">

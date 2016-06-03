@@ -7,6 +7,10 @@ module.exports = function(router){
 		'/login':{
 			name: 'login',
 			component: require('./views/login.vue')
+		},
+		'/register': {
+			name: 'register',
+			component: require('./views/register.vue')
 		}
 	});
 

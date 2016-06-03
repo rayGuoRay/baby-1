@@ -1,16 +1,3 @@
-<style>
-.header {
-	height: 44px;
-	width: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	text-align: center;
-	line-height: 44px;
-	font-size: 18px;
-	background: #6b7bf1;
-}
-</style>
 <template>
 <div>
 	<div class="header">广场</div>

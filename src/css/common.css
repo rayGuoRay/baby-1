@@ -452,3 +452,25 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.header {
+  height: 44px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 44px;
+  font-size: 20px;
+  background: #6b7bf1;
+}
+.back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 44px;
+  width: 30px;
+  line-height: 44px;
+  background: url(../img/back_arrow.png) no-repeat;
+  background-position: 14px;
+}
