@@ -13,4 +13,10 @@
 	<div class="validatebtn">验证</div>
 </div>
 </template>
-<script></script>
+<script>
+	module.exports = {
+		data: function(){
+			return {}
+		}
+	}
+</script>
