@@ -20,6 +20,7 @@
 				var param = {
 					token: api.getToken()
 				}
+				this.$route
 				this.$http.get(api.API_URL + 'src/data/data.json', param, function(data) {
 					console.log(data);
 					console.log(router);
