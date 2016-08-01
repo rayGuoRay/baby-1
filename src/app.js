@@ -44,7 +44,7 @@ var router = new VueRouter(
 	}
 );
 
-exports.module = require('./routers')(router);
+exports.router = require('./routers')(router);
 
 router.start(App,'#app');
 

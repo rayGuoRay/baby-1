@@ -5,7 +5,8 @@ export default {
 		authenticated: false
 	},
 	token: '',
-	login: url + 'src/data/data',
+	login: url + 'src/data/data.json',
+	// login: 'http://124.207.17.52/HSUSER/login/doLogin.action',
 	signup: url + 'signup',
 	logout: url + 'logout'
 }

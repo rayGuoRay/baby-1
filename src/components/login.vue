@@ -105,7 +105,7 @@
 </div>
 </template>
 <script>
-	import router from '../app'
+	import {router} from '../app'
 	import api from '../api'
 	module.exports = {
 		props: {
@@ -132,7 +132,8 @@
 					console.log(data)
 					localStorage.setItem('token', data.token)
 					api.token = data.token;
-
+					console.log(router.go);
+					router.go('home');
 					if (redirect) {
 						router.go(redirect)
 					}
