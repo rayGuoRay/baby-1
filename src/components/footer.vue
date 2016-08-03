@@ -31,7 +31,7 @@
 	</footer>
 </template>
 <script>
-	import router from '../app'
+	import {router} from '../app'
 	import api from '../api'
 	module.exports = {
 		props: {
@@ -42,12 +42,17 @@
 		},
 		data: function(){
 			return {
-				tab: true
+				tab: true,
+				model: ['home', 'album', 'friend', 'mine']
 			}
 		},
 		methods: {
 			changeModel: function(tab){
-				this.tabbar = tab;
+				if(tab !== this.tabbar) {
+					this.tabbar = tab;
+					console.log(this.model[tab-1]);
+					router.go(this.model[tab-1]);
+				}
 			}
 		}
 	}

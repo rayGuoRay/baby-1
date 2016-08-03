@@ -128,10 +128,7 @@
 					pwd: this.pwd
 				}
 				console.log(param);
-				this.$http.post(api.login, {
-					phoneno: '123456',
-					pwd: '1234567'
-				}).then( function(data) {
+				this.$http.get(api.login, param).then( function(data) {
 					console.log(data)
 					localStorage.setItem('token', data.token)
 					api.token = data.token;

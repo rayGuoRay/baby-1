@@ -1,12 +1,6 @@
-<style>
-	.test{
-		margin-top: 100px;
-	}
-</style>
 <template>
 <div>
-	<div class="header">广场</div>
-	<div class="test" @click="getdata()">tologin</div>
+	<div class="header">好友</div>
 </div>
 </template>
 <script>
@@ -16,6 +10,7 @@
 	module.exports = {
 		data: function(){
 			return {
+				title: 'home'
 			}
 		},
 		methods: {
@@ -32,9 +27,6 @@
 					console.log(data + "---" + status);
 				})
 			}
-		},
-		components: {
-			login: require('../components/login.vue')
 		}
 	}
 </script>
