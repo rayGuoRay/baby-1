@@ -30,8 +30,9 @@ Vue.use(VueTouch);
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
-Vue.http.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.http.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+Vue.http.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
+Vue.http.options.emulateJSON = true;
 
 var router = new VueRouter(
 	{

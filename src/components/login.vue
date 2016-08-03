@@ -128,7 +128,10 @@
 					pwd: this.pwd
 				}
 				console.log(param);
-				this.$http.get(api.login, param, (data) => {
+				this.$http.post(api.login, {
+					phoneno: '123456',
+					pwd: '1234567'
+				}).then( function(data) {
 					console.log(data)
 					localStorage.setItem('token', data.token)
 					api.token = data.token;
@@ -137,7 +140,7 @@
 					if (redirect) {
 						router.go(redirect)
 					}
-				}).error((err, statue) => {
+				}, function (err, statue) {
 					if(statue) {
 
 					}

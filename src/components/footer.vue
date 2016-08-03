@@ -19,15 +19,15 @@
     text-align: center;
 }
 .footbar .nowbar {
-	
+	color: #65d521;
 }
 </style>
 <template>
 	<footer class="footbar cf">
-		<div class="fl tabbar {{tabbar=='1' ? nowbar : ''}}">广场</div>
-		<div class="fl tabbar {{tabbar=='2' ? nowbar : ''}}">相册</div>
-		<div class="fl tabbar {{tabbar=='3' ? nowbar : ''}}">好友</div>
-		<div class="fl tabbar {{tabbar=='4' ? nowbar : ''}}">我的</div>
+		<div class="fl tabbar {{tabbar=='1' ? 'nowbar' : ''}}" @click="changeModel(1);">广场</div>
+		<div class="fl tabbar {{tabbar=='2' ? 'nowbar' : ''}}" @click="changeModel(2);">相册</div>
+		<div class="fl tabbar {{tabbar=='3' ? 'nowbar' : ''}}" @click="changeModel(3);">好友</div>
+		<div class="fl tabbar {{tabbar=='4' ? 'nowbar' : ''}}" @click="changeModel(4);">我的</div>
 	</footer>
 </template>
 <script>
@@ -45,8 +45,10 @@
 				tab: true
 			}
 		},
-		methods: function(){
-
+		methods: {
+			changeModel: function(tab){
+				this.tabbar = tab;
+			}
 		}
 	}
 </script>

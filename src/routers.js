@@ -11,6 +11,10 @@ module.exports = function(router){
 		'/register': {
 			name: 'register',
 			component: require('./views/register.vue')
+		},
+		'/perfectmsg': {
+			name: 'perfectmsg',
+			component: require('./views/perfectmsg.vue')
 		}
 	});
 

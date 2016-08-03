@@ -41,7 +41,7 @@
 <template>
 <div>
 	<div class="header">注册</div>
-	<div class="back"></div>
+	<back></back>
 	<div class="registphoneno">
 		<div class="frontphone fl">中国+86</div>
 		<div class="input">
@@ -52,6 +52,9 @@
 </div>
 </template>
 <script>
+	import {router} from '../app'
+	import api from '../api'
+	import common from '../common'
 	module.exports = {
 		data: function(){
 			return {
@@ -60,8 +63,29 @@
 		},
 		methods: {
 			register: function(){
-				
+				var param = {
+					phoneno: this.phoneno,
+					pwd: this.pwd
+				}
+				console.log(param);
+				this.$http.get(api.register, param, (data) => {
+					console.log(data)
+					localStorage.setItem('token', data.token)
+					api.token = data.token;
+					console.log(router.go);
+					router.go('perfectmsg');
+					if (redirect) {
+						router.go(redirect)
+					}
+				}).error((err, statue) => {
+					if(statue) {
+
+					}
+				})
 			}
+		},
+		components: {
+			back: require('../components/back.vue')
 		}
 	}
 </script>
